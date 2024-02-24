@@ -1,5 +1,6 @@
 # Estructura de Systema Fat32
 
+```cpp
 Sector = default 512B
 Cluster = sector x SectorPerCluster, defauls 8KB
 
@@ -60,6 +61,8 @@ Calculation: {
 	ClusterSec = DataFirstSec + ((Cluster_ID - 2) * SecPerClus)	// -2 es porque los 2 primeros clusters no se usan
 	ClusterAddr = ClusterSec * BytsPerSec
 }
+
+```
 
 ## Tabla FAT32
 - es un array que tiene un item para cada cluster
