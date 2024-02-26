@@ -1,5 +1,44 @@
 # Estructura de Systema Fat32
 
+
+## FAT32 Boot Record Information
+
+| Offset | Description                                         | Size | Default |
+|--------|-----------------------------------------------------|------|---------|
+| 0x00   | Jump Code + NOP                                     |    3 |     XXX |
+| 0x03   | OEM Name (Probably MSWIN4.1)                        |    8 |         |
+| 0x0B   | Bytes Per Sector                                    |    2 |     512 |
+| 0x0D   | Sectors Per Cluster                                 |    1 |      16 |
+| 0x0E   | Reserved Sectors                                    |    2 |       0 |
+| 0x10   | Number of Copies of FAT                             |    1 |       2 |
+| 0x11   | ---                                                 |    2 |       0 |
+| 0x13   | ---                                                 |    2 |       0 |
+| 0x15   | Media Descriptor                                    |    1 |    0xF8 |
+| 0x16   | ---                                                 |    2 |       0 |
+| 0x18   | Sectors Per Track                                   |    2 |    XXXX |
+| 0x1A   | Number of Heads                                     |    2 |         |
+| 0x1C   | Number of Hidden Sectors inPartition                |    4 |         |
+| 0x20   | Number of Sectors inPartition                       |    4 |         |
+| 0x24   | Number of Sectors Per FAT                           |    4 |         |
+| 0x28   | Flags                                               |    2 |         |
+| 0x2A   | Version of FAT32 Drive Minor Version                |    2 |         |
+| 0x2B   | Version of FAT32 Drive Major Version                |    2 |         |
+| 0x2C   | Cluster of the Root Directory                       |    4 |       0 |
+| 0x30   | Sector of the FileSystem Information                |    2 |         |
+| 0x32   | Sector of the BackupBoot                            |    2 |         |
+| 0x34   | Reserved                                            |   12 |       0 |
+| 0x40   | Logical Drive Number of Partition                   |    1 |         |
+| 0x41   | Unused                                              |    1 |       0 |
+| 0x42   | Extended Signature                                  |    1 |    0x29 |
+| 0x43   | Serial Number of Partition                          |    4 | 0x89ABCDEF |
+| 0x47   | Volume Name of Partition                            |   11 | SD-Card |
+| 0x52   | FAT Name (FAT32)                                    |    8 | FAT32   |
+| 0x5A   | Executable Code                                     |  420 |  XXXX   |
+| 0x01FE | Boot Record Signature                               |    2 |  0x55   |
+| 0x01FE | Boot Record Signature                               |    2 |  0xAA   |
+
+
+
 ```cpp
 Sector = default 512B
 Cluster = sector x SectorPerCluster, defauls 8KB
